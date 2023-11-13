@@ -1,38 +1,245 @@
-.App {
+/* Import the Montserrat and Fira Code fonts. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Define global variables. */
+:root {
+  /* Define the global color palette. */
+  --accent-color: #2ac3de;
+  --accent-color-alt: #ff0050;
+  --text-color: #f8f8f2;
+  --card-color: #272b3c;
+  --background-color: #16161e;
+
+  /* Define the global spacing. */
+  --common-spacing: 10%;
+}
+
+/* Define global tag and class styles. */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5rem;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-color-alt);
+}
+
+button, .button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5rem;
+  padding: 0.5rem;
+  color: var(--text-color);
+  background-color: var(--card-color);
+  border: none;
+  border-radius: 10px;
+}
+
+button, .button:hover {
+  color: var(--text-color);
+  background-color: #363b54;
+  cursor: pointer;
+}
+
+button.active, .button.active {
+  color: var(--text-color);
+  background-color: #363b54;
+}
+
+button[type="submit"] {
+  margin-top: 1.5rem;
+}
+
+hr {
+  margin: 2rem 0;
+  color: #363b54;
+}
+
+.container {
   text-align: center;
+  padding: 2rem var(--common-spacing);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+  text-align: left;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: var(--card-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.react-datepicker-wrapper {
+  margin-top: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.chart-wrapper {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #363b54;
+}
+
+.table-wrapper {
+  margin-top: 2rem;
+  overflow: scroll;
+}
+
+#logo {
+  max-width: 200px;
+  min-width: 100px;
+  width: 100%;
+  height: auto;
+}
+
+#topnav {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.menu {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Tables */
+table {
+  width: 100%;
+}
+
+table, th, td {
+  text-align: left;
+  border-collapse: collapse;
+  border: 1px solid var(--background-color);
+}
+
+tr:nth-child(odd) { 
+  background: #515c7e40;
+}
+
+tr:nth-child(even) { 
+  background: #1111174a;
+}
+
+tr:hover { 
+  background: #515c7e60;
+  cursor: pointer;
+}
+
+th {
+  background-color: #363b54;
+}
+
+th, td {
+  padding: 10px 20px 10px 10px;
+}
+
+header, footer {
+  text-align: center;
+  color:#363b54;
+}
+
+form {
+  margin: 2rem 0;
+}
+
+input, input[type="number"], textarea {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5rem;
+  color: var(--text-color);
+  border: 1px solid var(--background-color);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #1111174a;
+  display: block;
+}
+
+input:focus, input[type="number"]:focus, textarea:focus {
+  background-color: #1111174a;
+  outline: 2px solid var(--accent-color);
+}
+
+.dropzone {
+  text-align: center;
+  padding: 30px;
+  border: 3px dashed #363b54;
+  background-color: #1a1b26;
+  color: #bdbdbd;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.table th.up {
+  background-image: url("./images/arrow-up.png");
+}
+
+.table th.down {
+  background-image: url("./images/arrow-down.png");
+}
+
+.table th.default {
+  background-image: url("./images/arrow-default.png");
+}
+
+th.up, th.default, th.down {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+/* Modals */
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: #16161ecc;
+}
+
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  min-width: 50%;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

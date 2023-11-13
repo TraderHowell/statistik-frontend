@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import Header from "./templates/Header";
+import Footer from "./templates/Footer";
+import ClientsList from "./pages/ClientsList";
+import ClientDashboard from "./pages/ClientDashboard";
+import ClientStreams from './pages/ClientStreams';
+import ClientSettings from './pages/ClientSettings';
+import StreamEditor from './pages/StreamEditor';
 
 function App() {
-  return (
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter>
+            <Header />
+                <Routes>
+                    <Route path="/" element={<ClientsList />} />
+                    <Route path="/client-dashboard" element={<ClientDashboard />} />
+                    <Route path="/client-streams" element={<ClientStreams />} />
+                    <Route path="/client-settings" element={<ClientSettings />} />
+                    <Route path="/stream-editor" element={<StreamEditor />} />
+                </Routes>
+            <Footer />
+        </BrowserRouter>
     </div>
-  );
+    );
 }
 
 export default App;
