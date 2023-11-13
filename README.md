@@ -1,6 +1,5 @@
 ![StatisTik Logo](README-logo.webp)
 # StatisTik Frontend
-New frontend for StatisTik, an analytics platform for TikTok.
-This project requires `statistik-backend` to function.
+New frontend for StatisTik, an analytics platform for TikTok. Part of a group project at the University of South Florida.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project requires [statistik-backend](https://github.com/TraderHowell/statistik-backend) and the associated PostgreSQL database to function.
