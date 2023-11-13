@@ -1,6 +1,7 @@
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, LineElement, Tooltip, Legend } from 'chart.js';
 import { format } from 'date-fns';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register({
     CategoryScale,
@@ -8,6 +9,7 @@ Chart.register({
     LineElement,
     Tooltip,
     Legend,
+    ChartDataLabels,
 });
 
 function formatDateString(dateString) {
@@ -34,30 +36,30 @@ function LineChartEngagement({ apiData, startDate, endDate }) {
     const chartData = {
         labels: filteredData.map((item) => item.date),
         datasets: [
-        {
-            label: "New Followers/Min",
-            borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 1,
-            data: filteredData.map((item) => item.newfollowersperminute),
-        },
-        {
-            label: "Likes/Min",
-            borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 1,
-            data: filteredData.map((item) => item.likesperminute),
-        },
-        {
-            label: "Viewers Who Commented/Min",
-            borderColor: "rgba(255, 159, 64, 1)",
-            borderWidth: 1,
-            data: filteredData.map((item) => item.viewerswhocommentedperminute),
-        },
-        {
-            label: "Shares/Min",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 1,
-            data: filteredData.map((item) => item.sharesperminute),
-        },
+            {
+                label: "New Followers/Min",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1,
+                data: filteredData.map((item) => item.newfollowersperminute),
+            },
+            {
+                label: "Likes/Min",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1,
+                data: filteredData.map((item) => item.likesperminute),
+            },
+            {
+                label: "Viewers Who Commented/Min",
+                borderColor: "rgba(255, 159, 64, 1)",
+                borderWidth: 1,
+                data: filteredData.map((item) => item.viewerswhocommentedperminute),
+            },
+            {
+                label: "Shares/Min",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+                data: filteredData.map((item) => item.sharesperminute),
+            },
         ],
     };
 

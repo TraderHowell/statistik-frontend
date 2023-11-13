@@ -1,6 +1,7 @@
 import { Bar } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
 import { format } from 'date-fns';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register({
     CategoryScale,
@@ -8,14 +9,18 @@ Chart.register({
     BarElement,
     Tooltip,
     Legend,
+    ChartDataLabels,
 });
+
+Chart.defaults.font.size = 8;
+
 
 function formatDateString(dateString) {
     const date = new Date(dateString);
     return format(date, 'MM-dd-yyyy');
 }
 
-function BarChartViews({ apiData,  startDate, endDate}) {
+function BarChartViews({ apiData, startDate, endDate }) {
     const graphData = apiData.map((item) => ({
         date: formatDateString(item.date),
         viewsperminute: item.viewsperminute,
@@ -32,18 +37,18 @@ function BarChartViews({ apiData,  startDate, endDate}) {
         labels: filteredData.map((item) => item.date),
         datasets: [
             {
-            label: "Views/Min",
-            backgroundColor: "rgba(75, 192, 192, 0.2)",
-            borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 1,
-            data: filteredData.map((item) => parseFloat(item.viewsperminute)),
+                label: "Views/Min",
+                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1,
+                data: filteredData.map((item) => parseFloat(item.viewsperminute)),
             },
             {
-            label: "Unique Views/Min",
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
-            borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 1,
-            data: filteredData.map((item) => parseFloat(item.uniqueviewersperminute)),
+                label: "Unique Views/Min",
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1,
+                data: filteredData.map((item) => parseFloat(item.uniqueviewersperminute)),
             },
         ],
     };
@@ -56,6 +61,6 @@ function BarChartViews({ apiData,  startDate, endDate}) {
         <div>
             <Bar data={chartData} options={options} />
         </div>)
-    }
+}
 
 export default BarChartViews;
