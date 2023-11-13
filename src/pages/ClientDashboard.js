@@ -57,7 +57,8 @@ return (
         <ClientMenu />
         <div className="card">
             <h2>Dashboard</h2>
-            <p>Welcome to the dashboard for {name}.</p>
+            <p>Welcome to the dashboard for {name}.<br />
+            Here you can see an overview of your client's metrics.</p>
             <div id="cardnav" className="menu">
                 <button onClick={window.print}>Print</button>
             </div>
@@ -79,15 +80,19 @@ return (
                 placeholderText="End Date"
             />
             <div className="chart-wrapper">
+                <h3>Views Data</h3>
                 {viewData && <BarChartViews apiData={viewData} startDate={startDate} endDate={endDate}/>}
             </div>
             <div className="chart-wrapper">
+                <h3>Rewards Data</h3>
                 {rewardData && <BarChartRewards apiData={rewardData} startDate={startDate} endDate={endDate}/>}
             </div>
             <div className="chart-wrapper">
+                <h3>Sponsor Data</h3>
                 {sponsorData && <BarChartSponsor apiData={sponsorData} startDate={startDate} endDate={endDate}/>}
             </div>
             <div className="chart-wrapper">
+                <h3>Engagement Data</h3>
                 {engagementData && <LineChartEngagement apiData={engagementData} startDate={startDate} endDate={endDate} />}
             </div>
         </div>

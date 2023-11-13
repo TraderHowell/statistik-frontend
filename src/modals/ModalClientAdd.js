@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function ModalClientAdd() {
 const [modal, setModal] = useState(false);
+const navigate = useNavigate();
 
 const toggleModal = () => {
     setModal(!modal);
@@ -33,6 +35,7 @@ return (
             <div onClick={toggleModal} className="overlay"></div>
             <div className="modal-content card">
                 <h2>Add New Client</h2>
+                <p>Add a new client to the list by entering the client name below.</p>
                 <form onSubmit={handleSubmit}>
                 <label>
                     Client Name:

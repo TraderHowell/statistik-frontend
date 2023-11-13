@@ -32,7 +32,10 @@ function ModalStreamAdd() {
         e.preventDefault();  // Prevent the default form submission behavior
         const emptyDate = e.target.elements.emptyDate.value;
         fetch(`http://localhost:3005/createemptystream?date=${emptyDate}&id=${id}`)
-          .then()
+        .then(
+          toggleModal(),
+          window.location.reload(false)
+        )
           .catch((error) => console.error("Error sending data: ", error));
   
   

@@ -45,22 +45,23 @@ function StreamEditor() {
   }
 
   async function deleteStream() {
-    try {
-      const inputDate = new Date(date);
-      const formattedDate = inputDate.toISOString().split('T')[0];
-      console.log('Date: ', formattedDate);
+    if (window.confirm("You are about to permanently delete the stream on \"" + date + "\" for client \"" + name + "\".\nAre you sure? This action cannot be undone.")) {
+      try {
+        const inputDate = new Date(date);
+        const formattedDate = inputDate.toISOString().split('T')[0];
+        console.log('Date: ', formattedDate);
 
-      fetch(`http://localhost:3005/deleteStream?date=${formattedDate}`)
-        .then()
-        .catch((error) => console.error("Error sending data: ", error));
+        fetch(`http://localhost:3005/deleteStream?date=${formattedDate}`)
+          .then()
+          .catch((error) => console.error("Error sending data: ", error));
 
-      navigate('/client-streams');
+        navigate('/client-streams');
 
-    } catch (error) {
-      console.error('There has been a problem with your fetch operation:', error);
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+      }
     }
   }
-
 return (
     <section id="content" className="container">
         <h1>Stream: {date}</h1>
@@ -68,7 +69,7 @@ return (
         <StreamMenu />
         <div className="card">
             <h2>Stream Editor</h2>
-            <p>Make configuration changes for the stream on {date}.</p>
+            <p>Update data or delete the stream on {date}.</p>
             <h3>Update Data</h3>
             {streamData.length > 0 ? (
             <table>
@@ -104,7 +105,7 @@ return (
             <p>No data available</p>
           )}
           <h3>Delete Stream</h3>
-          <p>Once you delete a stream, the action cannot be undone. Please be certain.</p>
+          <p><b>Once you delete a stream, the action cannot be undone</b>.</p>
           <button onClick={() => { deleteStream()}}>Delete Permanently</button>
         </div>
     </section>

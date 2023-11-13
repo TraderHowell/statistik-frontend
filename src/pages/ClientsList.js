@@ -22,10 +22,11 @@ function ClientsList() {
 
   return (
     <section id="content" className="container">
-      <h1>Client Management</h1>
+      <h1>StatisTik Home</h1>
+      <p>Welcome to StatisTik, an analytics platform for TikTok.</p>
       <div className="card">
-        <h2>Client List</h2>
-        <p>Select a client to open the client dashboard and manage streams.</p>
+        <h2>Clients</h2>
+        <p>Select a client to open the client dashboard, streams, and settings.</p>
         <div id="cardnav" className="menu">
           <ModalClientAdd />
         </div>

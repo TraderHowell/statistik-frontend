@@ -40,7 +40,7 @@ return (
         <ClientMenu />
         <div className="card">
             <h2>Streams</h2>
-            <p>Welcome to the stream list for {name}.</p>
+            <p>Select a stream to open the stream editor.</p>
             <div id="streamnav" className="menu">
                 <ModalStreamAdd />
                 <ModalStreamUpload />

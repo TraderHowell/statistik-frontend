@@ -96,6 +96,7 @@ hr {
 }
 
 .chart-wrapper {
+  text-align: center;
   margin-top: 2rem;
   padding: 2rem;
   border-radius: 10px;
@@ -189,7 +190,6 @@ input:focus, input[type="number"]:focus, textarea:focus {
   background-color: #1a1b26;
   color: #bdbdbd;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 .table th.up {

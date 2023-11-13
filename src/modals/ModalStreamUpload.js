@@ -54,10 +54,10 @@ function ModalStreamUpload() {
             setLoaded((progressEvent.loaded / progressEvent.total) * 100);
           },
         })
-        .then((res) => {
-          // console.log(res.statusText);
-        });
-      window.location.reload();
+        .then(
+          toggleModal(),
+          window.location.reload(false)
+        );
     };
 
 return (
@@ -70,9 +70,9 @@ return (
             <div className="modal-content card">
                 <h2>Upload Stream Data</h2>
                 <p>Upload .zip files associated with a stream exported from TikTok.</p>
-                <input className="dropzone" type="file" name="" id="" onChange={handleSelectedFiles} multiple />
                 <form onSubmit={handleUpload}>
-                    <button type="submit">Upload</button>
+                  <input className="dropzone" type="file" name="" id="" onChange={handleSelectedFiles} multiple />
+                  <button type="submit">Upload</button>
                 </form>
                 <button className="close-modal" onClick={toggleModal}>Close</button>
             </div>
